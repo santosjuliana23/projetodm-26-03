@@ -15,20 +15,17 @@
         <img :src="image" alt="img-product">
       </div>
       <div class="product-info">
-        <h1> T-shirt</h1>
-        <p>in stock</p>
+        <h1>{{ product_title }}</h1>
+        <p v-if="inStock >= 10" >in stock</p>
+        <p v-else-if="inStock < 10 && inStock >= 1" > almost of out</p>
+        <p v-else >out of stock</p>
         <p>$200,00</p>
-      </div>
-    </div>
-    <div class="product-container"> 
-      <div class="product-image">
-        <img :src="image2" alt="img-product">
-      </div>
-      <div class="product-info">
-        <h1> T-shirt</h1>
-        <p>o preço é mais caro por conta de sua folha <b>superstyle</b></p>
-        <p>in stock</p>
-        <p>$20000,00</p>
+        <ul>
+          <li v-for="detail in details">
+            {{detail}}
+          </li>
+        </ul>
+        <div v-for = "variant in variants">{{variant.color}}</div>
       </div>
     </div>
  </div>
@@ -43,11 +40,12 @@
   const { createApp, ref } = Vue
   createApp({
     setup() {
-      const message = ref('Hello vue!')
-      return {
-        message,
+      return{
+        product_title: ref('T-Shirt'),
         image: ref("assets/images/t-shirt-blue.png"),
-        image2: ref("assets/images/t-shirt-green.png")
+        inStock: ref(0),
+        details: ['50% cotton' , '30% polyester' , '20% woll'],
+        variants:[{id:1, color:'blue'},{id:2, color: 'green'}]
       }
     }
   }).mount('#app')
