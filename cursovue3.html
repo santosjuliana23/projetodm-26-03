@@ -31,15 +31,13 @@
       </div>
     </div>
  </div>
-
-
-
 </div>
 </body>
 </html>
 
-<script>
-  const { createApp, ref } = Vue
+<script type="module">
+  import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
   createApp({
     setup() {
       const cart = ref(0)

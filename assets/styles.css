@@ -22,10 +22,11 @@ body {
 }
 
 .cart {
+  width: 90px;
   margin: 25px 100px;
   float: right;
   border: 1px solid #d8d8d8;
-  padding: 10px 30px;
+  padding: 10px 10px;
   background-color: white;
   -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
